@@ -1,0 +1,38 @@
+plugins {
+    id 'com.gradle.plugin-publish' version '0.10.1'
+    id 'java-gradle-plugin'
+}
+
+group 'com.wxmlabs'
+version '0.1'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+}
+
+gradlePlugin {
+    plugins {
+        javaCompatibilityPlugin {
+            id = 'com.wxmlabs.java-compatibility'
+            implementationClass = 'com.wxmlabs.gradle.JavaCompatibilityPlugin'
+        }
+    }
+}
+
+pluginBundle {
+    website = 'https://github.com/wxmlabs/java-compatibility-plugin'
+    vcsUrl = 'https://github.com/wxmlabs/java-compatibility-plugin'
+
+    description = 'Java dependencies compatibility plugin'
+
+     plugins {
+         javaCompatibilityPlugin {
+            displayName = 'Java Compatibility Plugin'
+            tags = ['java', 'dependencies', 'compatibility', 'plugin']
+            version = project.version
+        }
+    }
+}
